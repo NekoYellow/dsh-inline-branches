@@ -1,0 +1,3 @@
+- insert:
+    - id: inline-branches
+      name: 'dsh-inline-branches'

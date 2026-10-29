@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Conversation Tree",
+    "description": "Turn the chat turns into nested sub-conversations with Finder-style disclosure and a tree navigator, without creating a new Session."
+  }
+}
