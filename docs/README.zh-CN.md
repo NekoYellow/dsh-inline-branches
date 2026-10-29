@@ -36,13 +36,21 @@ Harness 的对话记录是线性的，而我发现自己常会需要针对一处
 
 ### 从 npm 安装
 
+在 Harness Web UI 里：
+
+1. 在侧边栏打开 **Plugins**。
+2. 点 **Add plugin**。
+3. 填入 `dsh-inline-branches`，确认。
+
+安装器会把 bundle 加入你的 profile 并启用它。
+
+如果你有 `dsh` CLI，等价命令是：
+
 ```bash
 dsh plugin --profile desktop add dsh-inline-branches
 ```
 
-或在侧边栏打开 **Plugins**，点 **Add plugin**，填入 `dsh-inline-branches`。
-
-安装器会把 bundle 加入你的 profile 并启用它。
+这是终端命令，不是发给对话的消息；如果提示找不到 `dsh`，用上面的 Web UI。
 
 ### 从本仓库安装
 

@@ -38,13 +38,21 @@ That is the whole idea. Nothing is forked and no new Session is created — they
 
 ### From npm
 
+In the Harness Web UI:
+
+1. Open **Plugins** in the sidebar.
+2. Choose **Add plugin**.
+3. Enter `dsh-inline-branches` and confirm.
+
+The installer adds the bundle to your profile and enables it.
+
+If you have the `dsh` CLI, the same install is:
+
 ```bash
 dsh plugin --profile desktop add dsh-inline-branches
 ```
 
-Or open **Plugins** in the Harness sidebar, choose **Add plugin**, and enter `dsh-inline-branches`.
-
-The installer adds the bundle to your profile and enables it.
+Run it in a terminal — `dsh` is the Harness CLI, not a chat command. If `dsh` is not on your `PATH`, use the Web UI instead.
 
 ### From this repository
 
