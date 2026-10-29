@@ -1,17 +1,26 @@
 {
   "name": "dsh-inline-branches",
-  "version": "1.0.0",
-  "private": true,
+  "version": "1.0.1",
   "type": "module",
-  "description": "Nested turn folders and a tree navigator for DeepSeek Harness conversations, Finder-style, without creating a new Session.",
+  "description": "DeepSeek Harness plugin: nested turn folders and Finder-style show/hide for chat turns, without creating a new Session.",
   "license": "MIT",
+  "author": "Yueyuan Huang",
   "keywords": [
     "dsh",
     "dsh-plugin",
+    "deepseek",
     "deepseek-harness",
     "conversation-tree",
     "chat-ui"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NekoYellow/dsh-inline-branches.git"
+  },
+  "homepage": "https://github.com/NekoYellow/dsh-inline-branches#readme",
+  "bugs": {
+    "url": "https://github.com/NekoYellow/dsh-inline-branches/issues"
+  },
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",

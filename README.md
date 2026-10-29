@@ -1,61 +1,65 @@
 <h1 align="center">
-  <img src="./icon.svg" width="72" height="72" alt="dsh-inline-branches icon"><br>
+  <img src="https://cdn.jsdelivr.net/gh/NekoYellow/dsh-inline-branches@main/icon.svg" width="72" height="72" alt="dsh-inline-branches icon"><br>
   dsh-inline-branches
 </h1>
 
-<p align="center"><strong>A chat's turns become nested folders.</strong> Put a follow-up under any turn, then show or hide its children like Finder. No new Session.</p>
+<p align="center"><strong>A DeepSeek Harness plugin that turns a chat's turns into nested folders.</strong> Put a follow-up under any turn, then show or hide its children like Finder. No new Session.</p>
 
 <p align="center">
-  <a href="./README.zh-CN.md">中文文档</a> ·
+  <a href="https://github.com/NekoYellow/dsh-inline-branches/blob/main/docs/README.zh-CN.md">中文文档</a> ·
   <a href="#install">Install</a> ·
   <a href="#usage">Usage</a> ·
   <a href="#how-it-works">How it works</a> ·
   <a href="#limitations">Limitations</a>
 </p>
 
-<p align="center"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-2f6fed"></p>
+<p align="center">
+  <a href="https://www.npmjs.com/package/dsh-inline-branches"><img alt="npm version" src="https://img.shields.io/npm/v/dsh-inline-branches"></a>
+  <img alt="DeepSeek Harness plugin" src="https://img.shields.io/badge/DeepSeek%20Harness-plugin-2f6fed">
+  <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-2f6fed">
+</p>
 
-![The conversation tree panel open over a chat](./figures/tree-bar.png)
+![The conversation tree panel open over a chat](https://cdn.jsdelivr.net/gh/NekoYellow/dsh-inline-branches@main/figures/tree-bar.png)
 
 <p align="center"><em>Turns nest under their parent; the header's Tree button opens the same structure as a navigator.</em></p>
 
 ## What it does
 
-Normally a session lists its turns from top to bottom, like files sitting side by side in one folder. This plugin lets a turn act as a folder: follow-ups you put under it become its children, indented beneath it, and a chevron shows or hides them the way Finder does.
+Normally, a DeepSeek Harness session lists its turns from top to bottom, like files sitting side by side in one folder. This plugin lets a turn act as a folder: follow-ups you put under it become its children, indented beneath it, and a chevron shows or hides them the way Finder does.
 
 That is the whole idea. Nothing is forked and no new Session is created — they are the same turns, shown as a tree. Messages are still rendered by the native Chat, so Markdown, tool cards, approvals, and images are unchanged.
 
 ## Requirements
 
-- DeepSeek Harness Desktop with the Web UI, developed against **0.2.1-rc.3**.
+- A plugin for **DeepSeek Harness** Desktop with the Web UI, developed against **0.2.1-rc.3**.
 - No build step, no runtime dependencies, no network access.
 
 ## Install
 
-### From the Web UI
+### From npm
 
-1. Open **Plugins** in the Harness sidebar.
-2. Choose **Add plugin**.
-3. Paste the repository URL, or the absolute path to a local checkout, and confirm.
+```bash
+dsh plugin --profile desktop add dsh-inline-branches
+```
 
-The installer adds `dsh-inline-branches` to your profile and enables the bundle.
+Or open **Plugins** in the Harness sidebar, choose **Add plugin**, and enter `dsh-inline-branches`.
 
-### From the CLI
+The installer adds the bundle to your profile and enables it.
+
+### From this repository
 
 ```bash
 git clone https://github.com/NekoYellow/dsh-inline-branches.git
 dsh plugin --profile desktop add "$PWD/dsh-inline-branches"
 ```
 
-Or install straight from the repository:
+You can also pass the repository URL directly:
 
 ```bash
 dsh plugin --profile desktop add https://github.com/NekoYellow/dsh-inline-branches
 ```
 
-Replace `desktop` with your profile name if you use another one. Installation selects the bundle by default; if **Tree** does not appear in the session header, restart Harness.
-
-The package is not published to npm — install it from this repository.
+Replace `desktop` with your profile name if you use another one. If **Tree** does not appear in the session header, restart Harness.
 
 ## Usage
 
@@ -65,7 +69,7 @@ The package is not published to npm — install it from this repository.
 4. Click the chevron on a folder row to show or hide its whole subtree, Finder-style.
 5. To return to the top level, click **Back to main** in the chip. The **Tree** button in the header opens the same structure as a navigator; click any row to jump to that turn.
 
-![Arming a sub-conversation under a finished turn](./figures/new-sub-conversation.png)
+![Arming a sub-conversation under a finished turn](https://cdn.jsdelivr.net/gh/NekoYellow/dsh-inline-branches@main/figures/new-sub-conversation.png)
 
 <p align="center"><em>Arming a folder: the chip above the composer names the parent turn and offers “Back to main”.</em></p>
 
@@ -107,9 +111,7 @@ If a future DSH release changes them, nesting may stop working until the plugin 
 
 - **No context isolation.** Sub-conversations are ordinary turns appended to the current session; the model sees them in chronological order, not spliced in under the parent turn. Not creating a Session is what makes this cheap, and this is its cost.
 - **Presentation only.** The parent relation is a browser-side view; the log stays linear and the tree does not follow you to another device.
-- **Linear turn numbers.** Sub-turns keep their normal turn numbers and appear in the session's context like any other turn.
 - **Loaded turns only.** The navigator lists the turns currently loaded in the transcript; scroll the main conversation to load older ones.
-- **In-memory arming.** The armed folder survives navigation within the page, but not a reload.
 - **Hidden native branch button.** The built-in "Branch into a new conversation" action is hidden to avoid confusion with sub-conversations.
 
 ## Uninstall
@@ -129,10 +131,11 @@ locale/en.json      Plugin Manager metadata (title/description)
 locale/zh.json
 icon.svg            Plugin Manager icon
 figures/            screenshots used by this README
+docs/README.zh-CN.md  Chinese README
 ```
 
 Point a profile at the checkout with **Add plugin → local path**, and restart or reinstall after editing `client.js` to load a fresh Client module.
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](https://github.com/NekoYellow/dsh-inline-branches/blob/main/LICENSE)
