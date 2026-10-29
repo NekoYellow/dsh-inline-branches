@@ -88,7 +88,6 @@ window.__ModuleLoader__.load({
 .dsh-tree-row-title{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:var(--dsh-content-font-size-secondary,13px);line-height:18px;color:var(--dsw-alias-label-primary)}
 .dsh-tree-row-preview{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;line-height:15px;color:var(--dsw-alias-label-tertiary)}
 .dsh-tree-empty{padding:18px 10px;text-align:center;color:var(--dsw-alias-label-tertiary);font-size:var(--dsh-content-font-size-secondary,13px);line-height:20px}
-button[aria-label="在新对话中分支"],button[aria-label="Branch into a new conversation"]{display:none!important}
 `
 
     const EMPTY_PARENTS = Object.freeze({})

@@ -93,8 +93,6 @@ Everything is a Client-side view over the existing session:
 
 While a folder is armed, the header component watches the session's turn list and records a parent edge for every turn that appears. That is why no fork or new session is needed. The relation is per browser because it lives in `localStorage`: the session log stays linear, and another device, or cleared storage, sees the same turns without the tree.
 
-The plugin also hides the native **Branch into a new conversation** button (matched by its built-in English and Chinese `aria-label`s) so the two branching models do not compete.
-
 ## Data and privacy
 
 - Only turn numbers and parent ids are stored, in the Web UI origin's `localStorage`.
@@ -108,7 +106,7 @@ The tree is pure CSS layered over the Chat DOM, so it depends on a few internals
 - `data-chat-turn` attributes on turn elements;
 - the Chat flow slot being `display: contents`, which makes turns flex items;
 - `tnXGgG_*` CSS-module class names for the running and older rows;
-- the slot names listed above, and the built-in English and Chinese `aria-label`s of the native branch button.
+- the slot names listed above.
 
 If a future DSH release changes them, nesting may stop working until the plugin is updated. The plugin never modifies session data. Adapting to new internals is welcome as a pull request.
 
@@ -117,7 +115,6 @@ If a future DSH release changes them, nesting may stop working until the plugin 
 - **No context isolation.** Sub-conversations are ordinary turns appended to the current session; the model sees them in chronological order, not spliced in under the parent turn. Not creating a Session is what makes this cheap, and this is its cost.
 - **Presentation only.** The parent relation is a browser-side view; the log stays linear and the tree does not follow you to another device.
 - **Loaded turns only.** The navigator lists the turns currently loaded in the transcript; scroll the main conversation to load older ones.
-- **Hidden native branch button.** The built-in "Branch into a new conversation" action is hidden to avoid confusion with sub-conversations.
 
 ## Uninstall
 

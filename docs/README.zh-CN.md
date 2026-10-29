@@ -91,8 +91,6 @@ dsh plugin --profile desktop add https://github.com/NekoYellow/dsh-inline-branch
 
 进入某个子对话后，标题栏组件会监听会话的轮次列表，把新出现的轮次记到当前文件夹下 —— 所以不需要 fork 或新 Session。父子关系存在浏览器里，因此只对当前浏览器生效：会话日志仍是线性的，换设备或清除站点数据后，轮次还在，树不跟随。
 
-插件还会按内置中英文的 `aria-label` 隐藏原生 **在新对话中分支** 按钮，避免两种分支模型混淆。
-
 ## 数据与隐私
 
 - 只在浏览器 `localStorage` 里保存轮次编号和父轮次编号。
@@ -106,7 +104,7 @@ dsh plugin --profile desktop add https://github.com/NekoYellow/dsh-inline-branch
 - 轮次元素上的 `data-chat-turn`；
 - Chat flow 槽位为 `display: contents`，轮次因此是 flex 项；
 - running/older 行的 `tnXGgG_*` class 名；
-- 上面列出的槽位名，以及原生分支按钮的本地化 `aria-label`。
+- 上面列出的槽位名。
 
 如果 DSH 升级改掉这些，嵌套可能失效，需要等插件适配。插件不改会话数据，欢迎提 PR 适配新版本。
 
@@ -115,7 +113,6 @@ dsh plugin --profile desktop add https://github.com/NekoYellow/dsh-inline-branch
 - **没有上下文隔离。** 子对话只是追加在当前会话里的普通轮次，模型按时间顺序看到它们，而不是拼在父轮次处。这是「不新建 Session」的代价。
 - **只是展示层。** 父子关系存在浏览器里，会话日志仍是线性的，换设备不跟随。
 - **只列已加载的轮次。** 导航树只显示当前已加载的轮次；更早的轮次需要先让主对话加载。
-- **原生分支按钮被隐藏。** 内置的「在新对话中分支」被隐藏，避免和子对话混淆。
 
 ## 卸载
 
