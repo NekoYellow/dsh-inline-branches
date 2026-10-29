@@ -9,8 +9,7 @@
   <a href="https://github.com/NekoYellow/dsh-inline-branches/blob/main/docs/README.zh-CN.md">中文文档</a> ·
   <a href="#install">Install</a> ·
   <a href="#usage">Usage</a> ·
-  <a href="#how-it-works">How it works</a> ·
-  <a href="#limitations">Limitations</a>
+  <a href="#how-it-works">How it works</a>
 </p>
 
 <p align="center">
@@ -46,13 +45,11 @@ In the Harness Web UI:
 
 The installer adds the bundle to your profile and enables it.
 
-If you have the `dsh` CLI, the same install is:
+Or with the `dsh` CLI:
 
 ```bash
 dsh plugin --profile desktop add dsh-inline-branches
 ```
-
-Run it in a terminal — `dsh` is the Harness CLI, not a chat command. If `dsh` is not on your `PATH`, use the Web UI instead.
 
 ### From this repository
 

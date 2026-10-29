@@ -9,8 +9,7 @@
   <a href="https://github.com/NekoYellow/dsh-inline-branches/blob/main/README.md">English</a> ·
   <a href="#安装">安装</a> ·
   <a href="#使用">使用</a> ·
-  <a href="#实现方式">实现方式</a> ·
-  <a href="#已知限制">已知限制</a>
+  <a href="#实现方式">实现方式</a>
 </p>
 
 <p align="center">
@@ -44,13 +43,11 @@ Harness 的对话记录是线性的，而我发现自己常会需要针对一处
 
 安装器会把 bundle 加入你的 profile 并启用它。
 
-如果你有 `dsh` CLI，等价命令是：
+或者用 `dsh` CLI：
 
 ```bash
 dsh plugin --profile desktop add dsh-inline-branches
 ```
-
-这是终端命令，不是发给对话的消息；如果提示找不到 `dsh`，用上面的 Web UI。
 
 ### 从本仓库安装
 
