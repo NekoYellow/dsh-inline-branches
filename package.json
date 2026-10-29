@@ -24,7 +24,8 @@
     "cordis.patch.yml",
     "locale/*.json",
     "icon.svg",
-    "docs/preview.svg",
+    "figures/new-sub-conversation.png",
+    "figures/tree-bar.png",
     "README.md",
     "LICENSE"
   ],

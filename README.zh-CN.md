@@ -15,15 +15,13 @@
 
 <p align="center"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-2f6fed"></p>
 
-![主对话里的嵌套文件夹与右侧的对话树导航](./docs/preview.svg)
+![对话树导航面板](./figures/tree-bar.png)
 
-> 示意图。实际界面里的颜色、间距和文字会跟随你的主题和语言。
+<p align="center"><em>每个轮次是一行，按层级缩进；点击任意一行跳到对应轮次。</em></p>
 
 ## 为什么
 
-Harness 的对话记录是一条平铺的时间线：追问总是落在同一个线程里，想展开一个支线问题时，通常只好另开一个 Session。这个插件走轻量路线 —— 任何已完成的轮次都可以拥有子对话，并在同一个对话里以文件夹形式呈现。
-
-父子关系只是浏览器里的**展示层**数据，不是 fork。轮次、消息、工具卡片、审批和会话日志都保持原样。
+Harness 的对话记录是线性的，我常会需要针对一处细节展开讨论，但这样往往会迷失在支线中；使用内置的分支功能另开一个 Session 又会让对话数迅速累积。这个插件走轻量路线 —— 任何已完成的轮次都可以拥有子对话，并在同一个对话里以类似文件夹的树状形式呈现。
 
 ## 功能
 
@@ -52,14 +50,14 @@ Harness 的对话记录是一条平铺的时间线：追问总是落在同一个
 ### 用命令行
 
 ```bash
-git clone https://github.com/<your-username>/dsh-inline-branches.git
+git clone https://github.com/NekoYellow/dsh-inline-branches.git
 dsh plugin --profile desktop add "$PWD/dsh-inline-branches"
 ```
 
 也可以直接从仓库安装：
 
 ```bash
-dsh plugin --profile desktop add https://github.com/<your-username>/dsh-inline-branches
+dsh plugin --profile desktop add https://github.com/NekoYellow/dsh-inline-branches
 ```
 
 如果你用的不是 `desktop` profile，替换成实际名称。安装默认会启用这个 bundle；如果标题栏没有出现 **对话树**，重启 Harness。
@@ -75,6 +73,10 @@ dsh plugin --profile desktop add https://github.com/<your-username>/dsh-inline-b
 5. 想更深一层：点某个**子轮次**自己的「＋ 子对话」。
 6. 想回到顶层：点提示条里的 **返回主线**。
 7. 点标题栏的 **对话树** 打开导航：每行按层级缩进，显示问题和最新回答的摘要，点击跳到对应轮次；这里的箭头和主对话共享折叠状态。
+
+![在已完成的轮次下开启子对话](./figures/new-sub-conversation.png)
+
+<p align="center"><em>进入子对话：输入框上方的提示条会说明新消息归属，并提供「返回主线」。</em></p>
 
 ## 实现方式
 
@@ -135,7 +137,7 @@ cordis.patch.yml    插入 inline-branches 行的 bundle patch
 locale/en.json      Plugin Manager 元数据（标题/描述）
 locale/zh.json
 icon.svg            Plugin Manager 图标
-docs/preview.svg    README 示意图
+figures/            本文使用的截图
 ```
 
 用 **Add plugin → 本地路径** 把一个 profile 指向这个目录；修改 `client.js` 后重启或重新安装，以加载新的 Client 模块。
@@ -143,5 +145,3 @@ docs/preview.svg    README 示意图
 ## License
 
 [MIT](./LICENSE)
-
-与 DeepSeek 官方无关；「DeepSeek Harness」仅用于说明兼容性。

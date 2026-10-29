@@ -15,9 +15,9 @@
 
 <p align="center"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-2f6fed"></p>
 
-![Nested turn folders in the transcript and the conversation tree navigator](./docs/preview.svg)
+![The conversation tree panel open over a chat](./figures/tree-bar.png)
 
-> Illustration. In the app, colors, spacing, and text follow your theme and locale.
+<p align="center"><em>Every turn becomes a row in the tree, nested by depth. Click a row to jump to that turn.</em></p>
 
 ## Why
 
@@ -52,14 +52,14 @@ The installer adds `dsh-inline-branches` to your profile and enables the bundle.
 ### From the CLI
 
 ```bash
-git clone https://github.com/<your-username>/dsh-inline-branches.git
+git clone https://github.com/NekoYellow/dsh-inline-branches.git
 dsh plugin --profile desktop add "$PWD/dsh-inline-branches"
 ```
 
 Or install straight from the repository:
 
 ```bash
-dsh plugin --profile desktop add https://github.com/<your-username>/dsh-inline-branches
+dsh plugin --profile desktop add https://github.com/NekoYellow/dsh-inline-branches
 ```
 
 Replace `desktop` with your profile name if you use another one. Installation selects the bundle by default; if **Tree** does not appear in the session header, restart Harness.
@@ -75,6 +75,10 @@ The package is not published to npm — install it from this repository.
 5. Go deeper by arming a sub-turn's own **+ Sub-conversation**.
 6. To return to the top level, click **Back to main** in the composer chip.
 7. Click **Tree** in the session header to open the navigator. Rows are indented by depth, show the question and a preview of the latest answer, and jump to the turn when clicked. Chevrons there and in the transcript share one collapse state.
+
+![Arming a sub-conversation under a finished turn](./figures/new-sub-conversation.png)
+
+<p align="center"><em>Arming a folder: the chip above the composer names the parent turn and offers “Back to main”.</em></p>
 
 ## How it works
 
@@ -135,7 +139,7 @@ cordis.patch.yml    bundle patch that inserts the inline-branches row
 locale/en.json      Plugin Manager metadata (title/description)
 locale/zh.json
 icon.svg            Plugin Manager icon
-docs/preview.svg    README illustration
+figures/            screenshots used by this README
 ```
 
 Point a profile at the checkout with **Add plugin → local path**, and restart or reinstall after editing `client.js` to load a fresh Client module.
@@ -143,5 +147,3 @@ Point a profile at the checkout with **Add plugin → local path**, and restart 
 ## License
 
 [MIT](./LICENSE)
-
-Not affiliated with DeepSeek. "DeepSeek Harness" is used only to describe compatibility.
