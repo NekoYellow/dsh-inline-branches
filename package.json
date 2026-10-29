@@ -1,6 +1,6 @@
 {
   "name": "dsh-inline-branches",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "description": "DeepSeek Harness plugin: nested turn folders and Finder-style show/hide for chat turns, without creating a new Session.",
   "license": "MIT",
