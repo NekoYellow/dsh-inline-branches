@@ -3,7 +3,7 @@
   dsh-inline-branches
 </h1>
 
-<p align="center"><strong>Nested turn folders and a tree navigator for DeepSeek Harness conversations — Finder-style, without creating a new Session.</strong></p>
+<p align="center"><strong>A chat's turns become nested folders.</strong> Put a follow-up under any turn, then show or hide its children like Finder. No new Session.</p>
 
 <p align="center">
   <a href="./README.zh-CN.md">中文文档</a> ·
@@ -17,22 +17,13 @@
 
 ![The conversation tree panel open over a chat](./figures/tree-bar.png)
 
-<p align="center"><em>Every turn becomes a row in the tree, nested by depth. Click a row to jump to that turn.</em></p>
+<p align="center"><em>Turns nest under their parent; the header's Tree button opens the same structure as a navigator.</em></p>
 
-## Why
+## What it does
 
-A Harness transcript is one flat list: every follow-up question lands in the same thread, and exploring a side question usually means starting a separate Session. This plugin takes a lighter route — any finished turn can own sub-conversations, drawn as folders inside the same transcript.
+Normally a session lists its turns from top to bottom, like files sitting side by side in one folder. This plugin lets a turn act as a folder: follow-ups you put under it become its children, indented beneath it, and a chevron shows or hides them the way Finder does.
 
-The parent/child relation is a **view** stored in your browser, not a fork. Turns, messages, tool cards, approvals, and the session log stay exactly as they are.
-
-## Features
-
-- **Turn folders** — a `+ Sub-conversation` row under every finished turn. Once a turn has children it becomes a `Sub-conversation · N` folder with a disclosure chevron.
-- **Nest as deep as you need** — arm a folder, keep typing in the normal composer, and each new turn nests one level deeper.
-- **Finder-style collapse** — collapse a folder to hide its whole subtree from the transcript; expand it to bring the turns back.
-- **Tree navigator** — the header's **Tree** button opens the tree of the whole session. Click any row to jump to that turn; collapse state is shared with the transcript.
-- **Native rendering** — messages, Markdown, tool cards, approvals, and images still come from the built-in Chat. Nothing is reimplemented.
-- **Theme and locale aware** — built on `--dsw-alias-*` tokens, with English and Chinese UI strings.
+That is the whole idea. Nothing is forked and no new Session is created — they are the same turns, shown as a tree. Messages are still rendered by the native Chat, so Markdown, tool cards, approvals, and images are unchanged.
 
 ## Requirements
 
@@ -69,12 +60,10 @@ The package is not published to npm — install it from this repository.
 ## Usage
 
 1. Finish a turn. A **+ Sub-conversation** row appears under it.
-2. Click it to arm that folder. A chip above the composer confirms that new messages will go into the sub-conversation under that turn.
-3. Type in the normal composer. The next turn — and every following turn while the folder stays armed — nests under it, indented by depth.
-4. Click the chevron on a folder row to expand or collapse its whole subtree. Collapsed turns disappear from the transcript, Finder-style.
-5. Go deeper by arming a sub-turn's own **+ Sub-conversation**.
-6. To return to the top level, click **Back to main** in the composer chip.
-7. Click **Tree** in the session header to open the navigator. Rows are indented by depth, show the question and a preview of the latest answer, and jump to the turn when clicked. Chevrons there and in the transcript share one collapse state.
+2. Click it to arm that folder. A chip above the composer shows where new messages will go.
+3. Keep typing in the normal composer: the next turn — and every turn after it while the folder stays armed — nests under it, indented by depth. Arm a sub-turn the same way to go deeper.
+4. Click the chevron on a folder row to show or hide its whole subtree, Finder-style.
+5. To return to the top level, click **Back to main** in the chip. The **Tree** button in the header opens the same structure as a navigator; click any row to jump to that turn.
 
 ![Arming a sub-conversation under a finished turn](./figures/new-sub-conversation.png)
 
